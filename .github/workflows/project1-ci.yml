@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report-project1
-          path: Automation/project1/test-results
+          path: project1/test-results
