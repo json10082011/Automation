@@ -24,7 +24,7 @@ os.makedirs("traces", exist_ok=True)
 def browser():
     with sync_playwright() as p:
         # browser = p.chromium.launch(headless=False)  # Change to True for headless execution
-        browser = p.chromium.launch(headless=False)
+        browser = p.chromium.launch(headless=True)
         yield browser
         browser.close()
 
