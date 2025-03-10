@@ -29,7 +29,7 @@ jobs:
         run: pytest --version  # Debugging step to check if pytest is installed
 
       - name: Run Pytest
-        run: python -m pytest python/tests/t_soucedemo_login.py  # Run pytest using python -m
+        run: python -m pytest python/tests/t_soucedemo_login.py --headed --html=report/report.html --self-contained-html
 
       - name: Upload Coverage Report (Optional)
         uses: codecov/codecov-action@v3
