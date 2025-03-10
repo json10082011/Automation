@@ -31,5 +31,14 @@ jobs:
           pytest --version
           python -c "from playwright.sync_api import sync_playwright; print('Playwright OK')"
 
-      - name: Run Pytest (Headless Mode)
-        run: python -m pytest python/tests/t_soucedemo_login.py --html=report/report.html --self-contained-html
+      - name: Run Pytest (Headless Mode) & Generate Report
+        run: |
+          mkdir -p reports
+          python -m pytest python/tests/t_soucedemo_login.py --headless --html=reports/report.html --self-contained-html
+
+      - name: Upload Pytest Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: pytest-report
+          path: reports/report.html
+          retention-days: 7  # Store the report for 7 days
